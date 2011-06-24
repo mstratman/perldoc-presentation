@@ -173,28 +173,29 @@ This function prints a greeting addressed to C&lt;$name&gt;.
 		render documents. 
 		More on this later.
 	</p>
+    <p>For the really adventurous: <code>perldoc perlpodspec</code></p>
 </div>
 
 
 <div class="slide">
-	<h1>Conventions<span class="sub"> - Use a starting template</span></h1>
+	<h1>Conventions<span class="sub"> - Use a Starting Template</span></h1>
 	<h3>Use a starting template</h3>
 	<div style="position:relative">
 		<ul class="larger">
 			<li>
-				<a href="http://beta.metacpan.org/module/Module::Starter">Module::Starter</a>
+				<a href="http://metacpan.org/module/Module::Starter">Module::Starter</a>
 				<ul>
 					<li><code>module-starter --Module=Your::Module --author="Your Name" --email=example@example.com</code></li>
 				</ul>
 			</li>
 			<li>
-				<a href="http://beta.metacpan.org/module/Module::Setup">Module::Setup</a>
+				<a href="http://metacpan.org/module/Module::Setup">Module::Setup</a>
 				<ul>
 					<li><code>module-setup Your::Module</code></li>
 				</ul>
 			</li>
 			<li>
-				<a href="http://beta.metacpan.org/module/h2xs">h2xs</a>
+				<a href="http://metacpan.org/module/h2xs">h2xs</a>
 				<ul>
 					<li><code>h2xs -XA -n Your::Module</code></li>
 				</ul>
@@ -208,18 +209,18 @@ This function prints a greeting addressed to C&lt;$name&gt;.
 	</div>
 </div>
 <div class="handout">
-	<p>Side-note: <a href="http://beta.metacpan.org/module/Module::Starter::PBP">Module::Starter::PBP</a> is a Module::Starter plugin that makes it simpler to follow the Damian Conway's guidelines in the "Perl Best Practices" book.</p>
 	<ul>
-		<li>Module::Starter - <a href="http://beta.metacpan.org/module/Module::Starter">http://beta.metacpan.org/module/Module::Starter</a></li>
-		<li>Module::Setup - <a href="http://beta.metacpan.org/module/Module::Setup">http://beta.metacpan.org/module/Module::Setup</a></li>
-		<li>h2xs - <a href="http://beta.metacpan.org/module/h2xs">http://beta.metacpan.org/module/h2xs</a></li>
+		<li>Module::Starter - <a href="http://metacpan.org/module/Module::Starter">http://metacpan.org/module/Module::Starter</a></li>
+		<li>Module::Setup - <a href="http://metacpan.org/module/Module::Setup">http://metacpan.org/module/Module::Setup</a></li>
+		<li>h2xs - <a href="http://metacpan.org/module/h2xs">http://metacpan.org/module/h2xs</a></li>
 	</ul>
+	<p>Side-note: <a href="http://metacpan.org/module/Module::Starter::PBP">Module::Starter::PBP</a> is a Module::Starter plugin that makes it simpler to follow the Damian Conway's guidelines in the "Perl Best Practices" book.</p>
 </div>
 
 
 <div class="slide">
 	<h1>Conventions<span class="sub"> - Common Sections</span></h1>
-	<h3>Common / Recommended Sections</h3>
+	<h3>Common / recommended sections</h3>
 	
 	<ul style="float:left" class="smaller">
 		<li><strong>NAME</strong></li>
@@ -283,7 +284,7 @@ Your::Module - Very short description</pre>
 	<h3>=head1 SYNOPSIS</h3>
 
 	<p class="incremental">Assume this is the only thing people will read!</p>
-	<p class="incremental">Simple. Usable. Spans 80-100% of your API.</p>
+	<p class="incremental">Simple. Usable. Covers 80-100% of your API.</p>
 	<pre class="incremental">=head1 SYNOPSIS
 
     use Config::Any;
@@ -296,7 +297,7 @@ Your::Module - Very short description</pre>
         my ($filename, $config) = %$_;
         $class-&gt;config($config);
         warn "loaded config from file: $filename";
-    }
+    }</pre>
 </div>
 <div class="handout">
 	<p>
@@ -325,6 +326,7 @@ Your::Module - Very short description</pre>
 		<li>What problems does this code solve?</li>
 		<li>Rationale for creating it</li>
 		<li>How does it differ from existing solutions?</li>
+		<li>Necessary background knowledge</li>
 	</ul>
 </div>
 
@@ -334,19 +336,153 @@ Your::Module - Very short description</pre>
 	<pre>
 =head1 SEE ALSO
 
-L&lt;Related::Module&gt;, L&lt;http://related.site&gt;
+L&lt;Related::Module&gt;, L&lt;http://related.site&gt;, L&lt;perlpod&gt;
 	</pre>
 </div>
 <div class="handout">
-	<p>Use the SEE ALSO section
+	<p>Use the SEE ALSO section to link to related modules, documents, web pages, or other related information.</p>
 	<p>
-		<code>L&lt; ... &gt;</code> is the formatting code for a link. In this
+		Note: <code>L&lt; ... &gt;</code> is the formatting code for a link. In this
 		case, we're linking to the docs of the Other::Module
 	</p>
 </div>
 
+
 <div class="slide">
-	<h1>Rendering</h1>
+	<h1>Rendering<span class="sub"> - Many Formats</span></h1>
+    <h3>Many Formats</h3>
+    <ul>
+        <li>
+            <strong><a href="http://metacpan.org/release/Pod-Simple">Pod-Simple</a></strong>
+            (<a href="http://metacpan.org/module/Pod::Simple::HTMLBatch">Pod::Simple::HTMLBatch</a> is especially great)
+        </li>
+    </ul>
+    TODO: write this.
+    Also make sure to mention Pod-Simple
+</div>
+<div class="handout">
+    <ul>
+        <li>Pod-Simple: <a href="http://metacpan.org/release/Pod-Simple">http://metacpan.org/release/Pod-Simple</a></li>
+    </ul>
+</div>
+
+<div class="slide">
+	<h1>Rendering<span class="sub"> - Conditional Formatting</span></h1>
+    <h3>Conditional Formatting</h3>
+    <pre>
+=begin html
+
+&lt;img src="http://www.jakehird.com/wp-content/uploads/2011/04/lolcat-server.jpg" /&gt;
+
+=end html
+
+=begin text
+
+  /\_/\
+ ( o.o ) im in ur serverz making thingz better!!!
+  &gt; ^ &lt;
+
+=end text</pre>
+</div>
+<div class="handout">
+    <p>
+        A more realistic example of this could be a diagram, with
+        a link to a rendered image for HTML, and an ascii diagram
+        for other formats.
+    </p>
+</div>
+
+
+<div class="slide">
+	<h1>Rendering<span class="sub"> - Conditional Formatting (pt 2)</span></h1>
+    <h3>Conditional Formatting</h3>
+    <div style="float:left">
+        <strong>perldoc</strong>
+        <br />
+        <img class="bordered" src="images/qrcode_perldoc.png" alt="[screenshot of HTML::Barcode::QRCode rendered with perldoc]" />
+    </div>
+    <div style="float:left">
+        <strong>html</strong>
+        <br />
+        <img class="bordered" src="images/qrcode_html.png" alt="[screenshot of HTML::Barcode::QRCode rendered with perldoc]" />
+    </div>
+    <div style="clear:both"></div>
+</div>
+<div class="handout">
+    <p>
+        You don't necessarily have to provide alternatives for every 
+        type of rendering.
+
+        This is an example of a non-vital piece of information rendered
+        in HTML, but completely omitted from the other formats.
+    </p>
+</div>
+
+
+<div class="slide">
+	<h1>Encouraging Contributions<span class="sub"> - Why?</span></h1>
+    <h3>Why?</h3>
+    <p>
+        Auther is expert 
+        <br />
+        &#x2234;
+        Author is ideal documenter
+    </p>
+    <p class="incremental largester">
+        Wrong!
+    </p>
+</div>
+<div class="handout">
+    <p>
+        Now, this isn't to say that the author of some code is NOT the
+        ideal person to write the documentation.
+        But rather, they are not <em>necessarily</em> the ideal person.
+    </p>
+    <p>
+        If you'd like to try a social experiment to see this falacy in action,
+        approach a big name publisher with an idea for a book.
+        See if their first concern is for the merit of your idea and your
+        writing quality - or the weight of your name ("authority") on
+        the subject.
+    </p>
+</div>
+
+<div class="slide">
+	<h1>Encouraging Contributions<span class="sub"> - Why? (pt 2)</span></h1>
+    <h3>Why?</h3>
+
+    <ol class="outline">
+        <li>
+            Author may not necessarily the best person to document
+            <ul>
+                <li>Too "close" to the code - leaves gaps in explanations without realizing. Unconsciously fills in blanks the reader won't</li>
+                <li>Has different background/experiences</li>
+                <li>Bad writer</li>
+            </ul>
+        </li>
+        <li>
+            Others can accommodate different...
+            <ul>
+                <li>learning styles</li>
+                <li>mental models</li>
+                <li>analogies</li>
+                <li>background/experiences</li>
+                <li>uses for the code</li>
+            </ul>
+        </li>
+    </ol>
+</div>
+<div class="handout">
+    <p><a href="http://www.shadowcat.co.uk/blog/matt-s-trout/love-your-idiots/">http://www.shadowcat.co.uk/blog/matt-s-trout/love-your-idiots/</a> - This blog post might sound a little harsh at first glance, but there are some shining nuggets of wisdom in here.</p>
+</div>
+
+
+<div class="slide">
+	<h1>Encouraging Contributions<span class="sub"> - Make it easy!</span></h1>
+    <h3>How?</h3>
+    <p class="largest">Make it easy!</p>
+</div>
+<div class="handout">
 </div>
 
 
@@ -357,6 +493,10 @@ L&lt;Related::Module&gt;, L&lt;http://related.site&gt;
 			<code>perldoc perlpod</code> or
 			<a href="http://perldoc.perl.org/perlpod.html">http://perldoc.perl.org/perlpod.html</a>
 		</li>
+        <li>
+            For the really adventurous: <code>perldoc perlpodspec</code> or
+            <a href="http://perldoc.perl.org/perlpodspec.html">http://perldoc.perl.org/perlpodspec.html</a>
+        </li>
 	</ul>
 </div>
 

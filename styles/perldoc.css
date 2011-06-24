@@ -4,6 +4,7 @@ a.download {
 }
 .larger { font-size: larger; }
 .largest { font-size: x-large; }
+.largester { font-size: xx-large; }
 .bordered { border: thin solid #95ABD0; }
 body:not(.single_slide) h1 { color:#000; }
 body:not(.single_slide) h2 { color:#000; }
