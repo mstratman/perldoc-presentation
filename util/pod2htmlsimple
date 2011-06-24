@@ -1,0 +1,14 @@
+#!/usr/bin/env perl
+use 5.010001;
+use strict;
+use warnings;
+use Pod::Simple::XHTML;
+
+my $file = shift or die "Provide a file path";
+
+my $p = Pod::Simple::XHTML->new;
+$p->index(1);
+$p->html_css('../style.css');
+$p->output_fh(*STDOUT);
+
+$p->parse_file($file);

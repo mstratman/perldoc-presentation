@@ -1,0 +1,39 @@
+=head1 Introduction to Perl: Documentation
+
+This is a presentation introducing new Perl programmers to documentation
+in the Perl community.
+
+You can get the latest version of this presentation at
+L<https://github.com/mstratman/perldoc-presentation>
+
+=head1 Scope and Purpose
+
+The focus of this presentation is on the conventions, expectations,
+and common practices of writing documentation for Perl code.
+
+It includes a brief introduction to POD (Perl's Plain Old Documentation format),
+and examples of POD throughout, but is not a POD tutorial.
+Rather this is a supplement to a POD tutorial or the L<perlpod> documentation.
+
+By the end of this presentation, the audience should feel comfortable
+creating, organizing, and editing documentation for their Perl software
+projects.
+
+=head1 Acknowledgements
+
+=over 4
+
+=item W3C - HTML Slidy
+
+The software and page design used in this presentation. More information at
+L<http://www.w3.org/Talks/Tools/Slidy2/>.
+
+=back
+
+=head1 Author
+
+Mark A. Stratman E<lt>stratman@gmail.comE<gt>
+
+=head1 License and Copyright
+
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.

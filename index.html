@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
+<head>
+  <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
+  <title>Introduction to Perl: Documentation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="duration" content="20" />
+  <meta name="font-size-adjustment" content="-1" />
+  <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
+  <link rel="stylesheet" href="styles/w3c-blue.css" type="text/css" />
+  <link rel="stylesheet" href="styles/perldoc.css" type="text/css" />
+  <script src="scripts/slidy.js" charset="utf-8" type="text/javascript"></script>
+	<script type="text/javascript">
+		function externalLinks() {
+			if (!document.getElementsByTagName) return;
+			var anchors = document.getElementsByTagName("a");
+			for (var i=anchors.length-1; i>=0; i--) {
+				var anchor = anchors[i];
+				if (anchor.href && 
+					(anchor.href.substr(0,7) == "http://" || anchor.href.substr(0,8) == "https://"))
+				{
+					anchor.target = "_blank";
+				}
+			}
+		}
+		var old_onload = window.onload;
+		window.onload = function() {
+			if (typeof(old_onload) == "function") { old_onload(); }
+			externalLinks();
+		};
+	</script>
+</head>
+
+<body>
+
+<div class="background"><img alt="" id="head-icon" src="graphics/icon-blue.png" name="head-icon" /></div>
+
+<div class="background slanty"><img src="graphics/w3c-logo-slanted.jpg" alt="slanted W3C logo" /></div>
+
+<div class="slide cover title">
+  <!-- hidden style graphics to ensure they are saved with other content -->
+  <img class="hidden" src="graphics/bullet.png" alt="" />
+  <img class="hidden" src="graphics/fold.gif" alt="" />
+  <img class="hidden" src="graphics/unfold.gif" alt="" />
+  <img class="hidden" src="graphics/fold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/nofold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/unfold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-fold.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-unfold.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-fold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-nofold-dim.gif" alt="" />
+  <img class="hidden" src="graphics/bullet-unfold-dim.gif" alt="" />
+  <br clear="all" />
+
+  <h1>Introduction to Perl: Documentation</h1>
+  <h2>Mark A. Stratman</h2>
+  <br />
+  <br />
+	<p>
+		Download:
+		<a class="download" href="http://is.gd/perldoc">is.gd/perldoc</a>
+		<br />
+		<small>(<a href="https://github.com/mstratman/perldoc-presentation">github.com/mstratman/perldoc-presentation</a>)</small>
+	</p>
+</div>
+
+<div class="slide">
+	<h1>Introduction<span class="sub"> - Types of Documents</span></h1>
+	<h3>Perl documents come in various flavors</h3>
+	<ul class="larger">
+		<li>API docs</li>
+		<li>man pages</li>
+		<li>Tutorials</li>
+		<li>Manuals</li>
+		<li>Cookbooks</li>
+	</ul>
+</div>
+<div class="handout">
+	<p>
+		The core perldocs also have other types of documents, such as FAQs. 
+		However, our focus in this presentation is on documents you are likely to write at $work, or for code you post on CPAN.
+	</p>
+</div>
+
+
+<div class="slide">
+	<h1>Introduction<span class="sub"> - POD</span></h1>
+	<h3>Perl documents are written with POD</h3>
+	<ul class="larger">
+		<li>POD is <em>Plain Old Documentation</em></li>
+		<li>POD is simple</li>
+		<li>POD is plain text</li>
+	</ul>
+</div>
+
+
+<div class="slide">
+	<h1>POD<span class="sub"> - Simple Example</span></h1>
+	<h3>Simple example</h3>
+
+	<div style="position:relative">
+		<div style="float:left">
+<pre>=head1 Introduction
+
+POD is too easy.
+
+=head2 Sub-heading
+
+    # Indented paragraphs render as code.
+    my $code = "indented";
+
+Formatting codes make it easy to write B&lt;bold&gt;,
+I&lt;italic&gt;, C&lt;code snippets&gt;, etc.
+
+Put a blank line between paragraphs, and before
+each command.</pre>
+		</div>
+		<div class="incremental dont_print" style="position:absolute;top:0;right:0;">
+			<img class="bordered" src="images/sample1.png" alt="[rendering of the POD]" />
+		</div>
+		<div style="clear:both"></div>
+	</div>
+</div>
+<div class="handout">
+	<p>Commands paragraphs start with <code>=</code> (e.g. <code>=head1</code>)</p>
+	<p>Verbatim paragraphs, typically blocks of code, are indented with whitespace.</p>
+	<p>Ordinary paragraphs are, as you can guess, ordinary blocks of text.</p>
+</div>
+
+
+<div class="slide">
+	<h1>POD<span class="sub"> - Standalone or Embedded</span></h1>
+	<h3>Where?</h3>
+	<p>
+		Write stand-alone <code>.pod</code> files,
+		or mix POD with code:
+	</p>
+<pre>greet<span style='color:#806030;'>(</span><span style='color:#e60000;'>"World"</span><span style='color:#806030;'>)</span>;
+<span style='color:#646478; '># To switch from code to POD, begin with a POD command</span>
+
+=item greet $name
+
+This function prints a greeting addressed to C&lt;$name&gt;.
+
+=cut
+
+<span style='color:#646478; '># End your POD with =cut to go back to code</span>
+<span style='color:#400000; font-weight:bold; '>sub </span>greet <span style='color:#806030; '>{</span> say <span style='color:#e60000; '>"Hello, "</span><span style='color:#806030; '>,</span> <span style='color:#400000; font-weight:bold; '>shift</span> <span style='color:#806030; '>}</span></pre>
+</div>
+
+
+<div class="slide">
+	<h1>POD<span class="sub"> - is EASY!</span></h1>
+	<h3>Learning POD</h3>
+	<p>
+		You can <a href="http://juerd.nl/site.plp/perlpodtut">learn the basics of POD in 5 minutes</a>
+	</p>
+
+	<p>And get the rest of the POD syntax details in <code>perldoc&nbsp;perlpod</code></p>
+	<div style="float:right">
+		<a href="http://perldoc.perl.org/perlpod.html"><img class="bordered" src="images/perldoc_perlpod.png" alt="Look at 'perldoc perlpod' for details" /></a>
+	</div>
+	<div style="clear:both"></div>
+</div>
+<div class="handout">
+	<p>Learn POD in 5 minutes:	<a href="http://juerd.nl/site.plp/perlpodtut">http://juerd.nl/site.plp/perlpodtut</a></p>
+	<p>
+		<code>perldoc</code> is a command-line utility for viewing
+		POD documentation - but there are plenty of other ways to 
+		render documents. 
+		More on this later.
+	</p>
+</div>
+
+
+<div class="slide">
+	<h1>Conventions<span class="sub"> - Use a starting template</span></h1>
+	<h3>Use a starting template</h3>
+	<div style="position:relative">
+		<ul class="larger">
+			<li>
+				<a href="http://beta.metacpan.org/module/Module::Starter">Module::Starter</a>
+				<ul>
+					<li><code>module-starter --Module=Your::Module --author="Your Name" --email=example@example.com</code></li>
+				</ul>
+			</li>
+			<li>
+				<a href="http://beta.metacpan.org/module/Module::Setup">Module::Setup</a>
+				<ul>
+					<li><code>module-setup Your::Module</code></li>
+				</ul>
+			</li>
+			<li>
+				<a href="http://beta.metacpan.org/module/h2xs">h2xs</a>
+				<ul>
+					<li><code>h2xs -XA -n Your::Module</code></li>
+				</ul>
+			</li>
+		</ul>
+
+		<div class="incremental dont_print" style="position:absolute;top:0;right:0;">
+			<img class="bordered" src="images/your_module_pm.png" alt="[screenshot of Your::Module auto-generated code]" />
+		</div>
+		<div style="clear:both"></div>
+	</div>
+</div>
+<div class="handout">
+	<p>Side-note: <a href="http://beta.metacpan.org/module/Module::Starter::PBP">Module::Starter::PBP</a> is a Module::Starter plugin that makes it simpler to follow the Damian Conway's guidelines in the "Perl Best Practices" book.</p>
+	<ul>
+		<li>Module::Starter - <a href="http://beta.metacpan.org/module/Module::Starter">http://beta.metacpan.org/module/Module::Starter</a></li>
+		<li>Module::Setup - <a href="http://beta.metacpan.org/module/Module::Setup">http://beta.metacpan.org/module/Module::Setup</a></li>
+		<li>h2xs - <a href="http://beta.metacpan.org/module/h2xs">http://beta.metacpan.org/module/h2xs</a></li>
+	</ul>
+</div>
+
+
+<div class="slide">
+	<h1>Conventions<span class="sub"> - Common Sections</span></h1>
+	<h3>Common / Recommended Sections</h3>
+	
+	<ul style="float:left" class="smaller">
+		<li><strong>NAME</strong></li>
+		<li>VERSION</li>
+		<li><strong>SYNOPSIS</strong></li>
+		<li><strong>DESCRIPTION</strong></li>
+		<li>EXPORT</li>
+		<li><strong>METHODS</strong> (for OO)</li>
+		<li><strong>SUBROUTINES</strong> (for functional)</li>
+		<li>INTERFACE</li>
+		<li>ATTRIBUTES (for OO)</li>
+		<li>DIAGNOSTICS</li>
+	</ul>
+	<ul style="float:left" class="smaller">
+		<li>CONFIGURATION AND ENVIRONMENT</li>
+		<li>DEPENDENCIES</li>
+		<li>INCOMPATIBILITIES</li>
+		<li>BUGS / CAVEATS / BUGS AND LIMITATIONS</li>
+		<li><strong>AUTHOR(S)</strong></li>
+		<li><strong>CONTRIBUTORS/ACKNOWLEDGEMENTS/CREDITS</strong></li>
+		<li><strong>SEE ALSO</strong></li>
+		<li><strong>LICENSE AND COPYRIGHT</strong></li>
+		<li>DISCLAIMER OF WARRANTY</li>
+	</ul>
+	<div style="clear:both"></div>
+	<p>
+		* Note: This is primarily for API documentation
+	</p>
+</div>
+<div class="handout">
+	<p>
+		These headings are most applicable to API documentation.
+		Tutorials, Manuals, Cookbooks and other types of documents might
+		have entirely custom headings, and that is perfectly acceptable.
+	</p>
+	<p>
+		This list might seem a little overwhelming, but chances are you 
+		won't need or want all of these sections.  The ones in bold
+		are a good starting point.
+	</p>
+	<p>
+		When in doubt, simply look at some example modules on CPAN to
+		see how other people structure their documents.
+	</p>
+</div>
+
+<div class="slide">
+	<h1>Conventions<span class="sub"> - =head1 NAME</span></h1>
+	<h3>=head1 NAME</h3>
+	<pre>=head1 NAME
+
+Your::Module - Very short description</pre>
+</div>
+<div class="handout">
+	<p>The paragraph following a NAME heading should be: the name of your module, a dash, then a short description.</p>
+</div>
+
+
+<div class="slide">
+	<h1>Conventions<span class="sub"> - =head1 SYNOPSIS</span></h1>
+	<h3>=head1 SYNOPSIS</h3>
+
+	<p class="incremental">Assume this is the only thing people will read!</p>
+	<p class="incremental">Simple. Usable. Spans 80-100% of your API.</p>
+	<pre class="incremental">=head1 SYNOPSIS
+
+    use Config::Any;
+
+    my $cfg = Config::Any-&gt;load_stems({stems =&gt; \@filepath_stems, ... });
+    # or
+    my $cfg = Config::Any-&gt;load_files({files =&gt; \@filepaths, ... });
+
+    for (@$cfg) {
+        my ($filename, $config) = %$_;
+        $class-&gt;config($config);
+        warn "loaded config from file: $filename";
+    }
+</div>
+<div class="handout">
+	<p>
+		The synopsis should be a simple (not burdened with any unrelated
+		or busines" logic) piece of code that demonstrates as much of
+		your API as possible.
+	</p>
+	<p>
+		In my opinion, the SYNOPSIS section is the most important
+		part of any API documentation. It is often the deciding factor
+		when people evaluate modules for a solution to a problem.
+	</p>
+	<p>
+		Strive to make the synopsis something
+		users can copy and paste into their application to
+		solve their problem with minimal changes.
+	</p>
+	<p>How to handle a big API? See the DateTime module for a good example.  Even bigger? Then you should probably refactor your code first.</p>
+</div>
+
+<div class="slide">
+	<h1>Conventions<span class="sub"> - =head1 DESCRIPTION</span></h1>
+	<h3>=head1 DESCRIPTION</h3>
+	<p>Make this section as long as it needs to be.</p>
+	<ul class="larger">
+		<li>What problems does this code solve?</li>
+		<li>Rationale for creating it</li>
+		<li>How does it differ from existing solutions?</li>
+	</ul>
+</div>
+
+<div class="slide">
+	<h1>Conventions<span class="sub"> - =head1 SEE ALSO</span></h1>
+	<h3>=head1 SEE ALSO</h3>
+	<pre>
+=head1 SEE ALSO
+
+L&lt;Related::Module&gt;, L&lt;http://related.site&gt;
+	</pre>
+</div>
+<div class="handout">
+	<p>Use the SEE ALSO section
+	<p>
+		<code>L&lt; ... &gt;</code> is the formatting code for a link. In this
+		case, we're linking to the docs of the Other::Module
+	</p>
+</div>
+
+<div class="slide">
+	<h1>Rendering</h1>
+</div>
+
+
+<div class="slide">
+	<h1>Resources</h1>
+	<ul>
+		<li>
+			<code>perldoc perlpod</code> or
+			<a href="http://perldoc.perl.org/perlpod.html">http://perldoc.perl.org/perlpod.html</a>
+		</li>
+	</ul>
+</div>
+
+
+</body>
+</html>

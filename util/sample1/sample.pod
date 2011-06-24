@@ -1,0 +1,14 @@
+=head1 Introduction
+
+POD is too easy.
+
+=head2 Sub-heading
+
+    # Indented paragraphs render as code.
+    my $code = "indented";
+
+Formatting codes make it easy to write B<bold>,
+I<italic>, C<code snippets>, etc.
+
+Put a blank line between paragraphs, and before
+each command.
