@@ -96,6 +96,10 @@
 	</ul>
 </div>
 
+<div class="slide">
+	<h1>POD</h1>
+	<p class="center section_intro">POD - Plain Old Documentation</p>
+</div>
 
 <div class="slide">
 	<h1>POD<span class="sub"> - Simple Example</span></h1>
@@ -166,16 +170,23 @@ This function prints a greeting addressed to C&lt;$name&gt;.
 	<div style="clear:both"></div>
 </div>
 <div class="handout">
-	<p>Learn POD in 5 minutes:	<a href="http://juerd.nl/site.plp/perlpodtut">http://juerd.nl/site.plp/perlpodtut</a></p>
 	<p>
 		<code>perldoc</code> is a command-line utility for viewing
 		POD documentation - but there are plenty of other ways to 
 		render documents. 
 		More on this later.
 	</p>
-    <p>For the really adventurous: <code>perldoc perlpodspec</code></p>
+	<p>For the really adventurous: <code>perldoc perlpodspec</code></p>
+	<p>Links from slide:</p>
+	<ul>
+		<li>Learn POD in 5 minutes:	<a href="http://juerd.nl/site.plp/perlpodtut">http://juerd.nl/site.plp/perlpodtut</a></li>
+	</ul>
 </div>
 
+<div class="slide">
+	<h1>Conventions</h1>
+	<p class="section_intro center">What's expected in Perl documentation</p>
+</div>
 
 <div class="slide">
 	<h1>Conventions<span class="sub"> - Use a Starting Template</span></h1>
@@ -203,6 +214,7 @@ This function prints a greeting addressed to C&lt;$name&gt;.
 	</div>
 </div>
 <div class="handout">
+	<p>Links from slide:</p>
 	<ul>
 		<li>Module::Starter - <a href="http://metacpan.org/module/Module::Starter">http://metacpan.org/module/Module::Starter</a></li>
 		<li>Module::Setup - <a href="http://metacpan.org/module/Module::Setup">http://metacpan.org/module/Module::Setup</a></li>
@@ -341,30 +353,161 @@ L&lt;Related::Module&gt;, L&lt;http://related.site&gt;, L&lt;perlpod&gt;
 	</p>
 </div>
 
+<div class="slide">
+	<h1>Conventions<span class="sub"> - When in doubt</span></h1>
+	<h3>When in doubt...</h3>
+	<p>Look at other documentation on CPAN</p>
+</div>
+
+<div class="slide">
+	<h1>Common Types of Documents</h1>
+	<p class="section_intro center">One document isn't always enough</p>
+</div>
+
+<div class="slide">
+	<h1>Common Types of Documents<span class="sub"> - API</span></h1>
+	<h3>API</h3>
+	<div style="float:left">
+		<ul class="incremental larger">
+			<li>Most common</li>
+			<li>Usually necessary</li>
+			<li>But not always sufficient</li>
+		</ul>
+	</div>
+	<div style="float:left">
+		<img class="bordered" src="images/toc-api.png" alt="[rendering of an API doc]" />
+	</div>
+	<div style="clear:both"></div>
+</div>
+
+<div class="slide">
+	<h1>Common Types of Documents<span class="sub"> - Tutorial</span></h1>
+	<h3>Tutorial</h3>
+	<div style="float:left">
+		<ul>
+			<li>
+				<code>Your::Module::Tutorial</code>
+				<br />
+				or <code>Your::Module::Manual::Tutorial</code>
+			</li>
+			<li><em>Underused!</em></li>
+		</ul>
+	</div>
+	<div style="float:left">
+		<img class="bordered" src="images/toc-tutorial.png" alt="[rendering of a tutorial table of contents]" />
+	</div>
+	<div style="clear:both"></div>
+</div>
+<div class="handout">
+	<p>
+		Tutorials simply walk the reader through the use of your code
+		step-by-step.
+	</p>
+	<p>
+		Often it will start with a simple stand-alone example, then continually
+		build upon it.
+	</p>
+	<p>
+		They do not need to cover every aspect of your module though.
+	</p>
+	<p>Seriously, don't be afraid to write a tutorial.</p>
+	<p>Your module/framework/etc doesn't need to be exceptionally complex to warrant a tutorial.</p>
+</div>
+
+
+<div class="slide">
+	<h1>Common Types of Documents<span class="sub"> - Cookbook</span></h1>
+	<h3>Cookbook</h3>
+	<div style="float:left">
+		<ul>
+			<li>
+				<code>Your::Module::Cookbook</code>
+				<br />
+				or <code>Your::Module::Manual::Cookbook</code>
+			</li>
+			<li>
+				Most useful with complex
+				<br />
+				modules or frameworks.
+			</li>
+		</ul>
+	</div>
+	<div style="float:left">
+		<img class="bordered" src="images/toc-cookbook.png" alt="[rendering of a cookbook]" />
+	</div>
+	<div style="clear:both"></div>
+</div>
+<div class="handout">
+	<p>
+		Cookbooks provide usable (copy-paste'able) solutions to a list of
+		solutions.
+	</p>
+</div>
+
+
+<div class="slide">
+	<h1>Common Types of Documents<span class="sub"> - Manual</span></h1>
+	<h3>Manual</h3>
+	<ul>
+		<li>Starting point for readers</li>
+		<li>Can...
+			<ul>
+				<li>List the API docs/tutorial pages/cookbooks/FAQs/etc</li>
+				<li>Or better yet - tie them together</li>
+				<li>Fill in any gaps left by your other documents</li>
+				<li>Whatever you need it to be...</li>
+			</ul>
+		</li>
+	</ul>
+</div>
+<div class="handout">
+	<p>Make the manual whatever you need it to be.</p>
+</div>
+
+<div class="slide">
+	<h1>Rendering</h1>
+	<p class="section_intro center">Turning POD into another format</p>
+</div>
 
 <div class="slide">
 	<h1>Rendering<span class="sub"> - Many Formats</span></h1>
-    <h3>Many Formats</h3>
-    <ul>
-        <li>
-            <strong><a href="http://metacpan.org/release/Pod-Simple">Pod-Simple</a></strong>
-            (<a href="http://metacpan.org/module/Pod::Simple::HTMLBatch">Pod::Simple::HTMLBatch</a> is especially great)
-        </li>
-		<li>pod2pdf (App::pod2pdf)</li>
-    </ul>
-    TODO: write this.
-    Also make sure to mention Pod-Simple
+	<h3>Many Formats</h3>
+	<ul>
+		<li>
+			<strong><a href="http://metacpan.org/release/Pod-Simple">Pod-Simple</a></strong>
+			- actively developed, with several output options:
+			<ul>
+				<li><a href="http://metacpan.org/module/Pod::Simple::XHTML">Pod::Simple::XHTML</a></li>
+				<li><a href="http://metacpan.org/module/Pod::Simple::HTMLBatch">Pod::Simple::HTMLBatch</a></li>
+				<li><a href="http://metacpan.org/module/Pod::Simple::HTML">Pod::Simple::HTML</a></li>
+				<li><a href="http://metacpan.org/module/Pod::Simple::Text">Pod::Simple::Text</a></li>
+				<li><a href="http://metacpan.org/module/Pod::Simple::XMLOutStream">Pod::Simple::XMLOutStream</a></li>
+				<li><a href="http://metacpan.org/module/Pod::Simple::RTF">Pod::Simple::RTF</a></li>
+			</ul>
+		</li>
+		<li><a href="http://metacpan.org/release/pod2pdf">pod2pdf</a></li>
+		<li><a href="http://metacpan.org/module/pod2latex">pod2latex</a></li>
+		<li><a href="http://metacpan.org/release/podlators">pod2text</a></li>
+		<li><a href="http://metacpan.org/release/podlators">pod2man</a></li>
+		<li><a href="http://metacpan.org/module/pod2html">pod2html</a></li>
+	</ul>
 </div>
 <div class="handout">
-    <ul>
-        <li>Pod-Simple: <a href="http://metacpan.org/release/Pod-Simple">http://metacpan.org/release/Pod-Simple</a></li>
-    </ul>
+	<p>There is even a module (Pod::S5) for converting POD to a slideshow which, perhaps disappointingly, was not used for this presentation.</p>
+	<p>Links from slide:</p>
+	<ul>
+		<li>Pod-Simple: <a href="http://metacpan.org/release/Pod-Simple">http://metacpan.org/release/Pod-Simple</a></li>
+		<li>pod2pdf: <a href="http://metacpan.org/release/pod2pdf">http://metacpan.org/release/pod2pdf</a></li>
+		<li>pod2latex: <a href="http://metacpan.org/module/pod2latex">http://metacpan.org/module/pod2latex</a></li>
+		<li>pod2text and pod2man: <a href="http://metacpan.org/release/podlators">http://metacpan.org/release/podlators</a></li>
+		<li>pod2html: <a href="http://metacpan.org/module/pod2html">http://metacpan.org/module/pod2html</a></li>
+	</ul>
 </div>
 
 <div class="slide">
 	<h1>Rendering<span class="sub"> - Conditional Formatting</span></h1>
-    <h3>Conditional Formatting</h3>
-    <pre>
+	<h3>Conditional Formatting</h3>
+	<pre>
 =begin html
 
 &lt;img src="http://www.jakehird.com/wp-content/uploads/2011/04/lolcat-server.jpg" /&gt;
@@ -380,104 +523,111 @@ L&lt;Related::Module&gt;, L&lt;http://related.site&gt;, L&lt;perlpod&gt;
 =end text</pre>
 </div>
 <div class="handout">
-    <p>
-        A more realistic example of this could be a diagram, with
-        a link to a rendered image for HTML, and an ascii diagram
-        for other formats.
-    </p>
+	<p>
+		A more realistic example of this could be a diagram, with
+		a link to a rendered image for HTML, and an ascii diagram
+		for other formats.
+	</p>
 </div>
 
 
 <div class="slide">
 	<h1>Rendering<span class="sub"> - Conditional Formatting (pt 2)</span></h1>
-    <h3>Conditional Formatting</h3>
-    <div style="float:left">
-        <strong>perldoc</strong>
-        <br />
-        <img class="bordered" src="images/qrcode_perldoc.png" alt="[screenshot of HTML::Barcode::QRCode rendered with perldoc]" />
-    </div>
-    <div style="float:left">
-        <strong>html</strong>
-        <br />
-        <img class="bordered" src="images/qrcode_html.png" alt="[screenshot of HTML::Barcode::QRCode rendered with perldoc]" />
-    </div>
-    <div style="clear:both"></div>
+	<h3>Conditional Formatting</h3>
+	<div style="float:left">
+		<strong>perldoc</strong>
+		<br />
+		<img class="bordered" src="images/qrcode_perldoc.png" alt="[screenshot of HTML::Barcode::QRCode rendered with perldoc]" />
+	</div>
+	<div style="float:left">
+		<strong>html</strong>
+		<br />
+		<img class="bordered" src="images/qrcode_html.png" alt="[screenshot of HTML::Barcode::QRCode rendered with perldoc]" />
+	</div>
+	<div style="clear:both"></div>
 </div>
 <div class="handout">
-    <p>
-        You don't necessarily have to provide alternatives for every 
-        type of rendering.
+	<p>
+		You don't necessarily have to provide alternatives for every 
+		type of rendering.
 
-        This is an example of a non-vital piece of information rendered
-        in HTML, but completely omitted from the other formats.
-    </p>
+		This is an example of a non-vital piece of information rendered
+		in HTML, but completely omitted from the other formats.
+	</p>
 </div>
 
 
 <div class="slide">
+	<h1>Encouraging Contributions</h1>
+	<p class="section_intro center">Getting others involved</p>
+</div>
+
+<div class="slide">
 	<h1>Encouraging Contributions<span class="sub"> - Why?</span></h1>
-    <h3>Why?</h3>
-    <p>
-        Auther is expert 
-        <br />
-        &#x2234;
-        Author is ideal documenter
-    </p>
-    <p class="incremental largester">
-        Wrong!
-    </p>
+	<h3>Why?</h3>
+	<p>
+		Auther is expert 
+		<br />
+		&#x2234;
+		Author is ideal documenter
+	</p>
+	<p class="incremental largester">
+		Wrong!
+	</p>
 </div>
 <div class="handout">
-    <p>
-        Now, this isn't to say that the author of some code is NOT the
-        ideal person to write the documentation.
-        But rather, they are not <em>necessarily</em> the ideal person.
-    </p>
-    <p>
-        If you'd like to try a social experiment to see this falacy in action,
-        approach a big name publisher with an idea for a book.
-        See if their first concern is for the merit of your idea and your
-        writing quality - or the weight of your name ("authority") on
-        the subject.
-    </p>
+	<p>
+		Now, this isn't to say that the author of some code is NOT the
+		ideal person to write the documentation.
+		But rather, they are not <em>necessarily</em> the ideal person.
+	</p>
+	<p>
+		If you'd like to try a social experiment to see this falacy in action,
+		approach a big name publisher with an idea for a book.
+		See if their first concern is for the merit of your idea and your
+		writing quality - or the weight of your name ("authority") on
+		the subject.
+	</p>
 </div>
 
 <div class="slide">
 	<h1>Encouraging Contributions<span class="sub"> - Why? (pt 2)</span></h1>
-    <h3>Why?</h3>
+	<h3>Why?</h3>
 
-    <ol class="outline">
-        <li>
-            Author may not necessarily the best person to document
-            <ul>
-                <li>Too "close" to the code - leaves gaps in explanations without realizing. Unconsciously fills in blanks the reader won't</li>
-                <li>Has different background/experiences</li>
-                <li>Bad writer</li>
-            </ul>
-        </li>
-        <li>
-            Others can accommodate different...
-            <ul>
-                <li>learning styles</li>
-                <li>mental models</li>
-                <li>analogies</li>
-                <li>background/experiences</li>
-                <li>uses for the code</li>
-            </ul>
-        </li>
-    </ol>
+	<ol class="outline">
+		<li>
+			Author may not necessarily the best person to document
+			<ul>
+				<li>Too "close" to the code - leaves gaps in explanations without realizing. Unconsciously fills in blanks the reader won't</li>
+				<li>Has different background/experiences</li>
+				<li>Bad writer</li>
+			</ul>
+		</li>
+		<li>
+			Others can accommodate different...
+			<ul>
+				<li>learning styles</li>
+				<li>mental models</li>
+				<li>analogies</li>
+				<li>background/experiences</li>
+				<li>uses for the code</li>
+			</ul>
+		</li>
+	</ol>
 </div>
 <div class="handout">
-    <p><a href="http://www.shadowcat.co.uk/blog/matt-s-trout/love-your-idiots/">http://www.shadowcat.co.uk/blog/matt-s-trout/love-your-idiots/</a> - This blog post might sound a little harsh at first glance, but there are some shining nuggets of wisdom in here.</p>
+	<p><a href="http://www.shadowcat.co.uk/blog/matt-s-trout/love-your-idiots/">http://www.shadowcat.co.uk/blog/matt-s-trout/love-your-idiots/</a> - This blog post might sound a little harsh at first glance, but there are some shining nuggets of wisdom in here.</p>
 </div>
 
 
 <div class="slide">
 	<h1>Encouraging Contributions<span class="sub"> - Make it easy!</span></h1>
-    <h3>How?</h3>
-    <p class="largest">Make it easy!</p>
+	<h3>How?</h3>
+	<p class="largest">Make it easy!</p>
+	<p>e.g. github</p>
 </div>
 <div class="handout">
+	<p>TODO: hassles of submitting doc patches... </p>
 </div>
 
 
@@ -488,10 +638,11 @@ L&lt;Related::Module&gt;, L&lt;http://related.site&gt;, L&lt;perlpod&gt;
 			<code>perldoc perlpod</code> or
 			<a href="http://perldoc.perl.org/perlpod.html">http://perldoc.perl.org/perlpod.html</a>
 		</li>
-        <li>
-            For the really adventurous: <code>perldoc perlpodspec</code> or
-            <a href="http://perldoc.perl.org/perlpodspec.html">http://perldoc.perl.org/perlpodspec.html</a>
-        </li>
+		<li>
+			For the really adventurous: <code>perldoc perlpodspec</code> or
+			<a href="http://perldoc.perl.org/perlpodspec.html">http://perldoc.perl.org/perlpodspec.html</a>
+		</li>
+		<li>TODO: List more...</li>
 	</ul>
 </div>
 
