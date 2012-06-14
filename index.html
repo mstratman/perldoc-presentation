@@ -5,9 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-US">
 <head>
   <meta name="generator" content="HTML Tidy for Linux (vers 25 March 2009), see www.w3.org" />
-  <title>Introduction to Perl: Documentation</title>
+  <title>Introduction to Writing Perl Documentation</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="duration" content="20" />
+  <meta name="duration" content="17" />
   <meta name="font-size-adjustment" content="-1" />
   <link rel="stylesheet" href="styles/slidy.css" type="text/css" />
   <link rel="stylesheet" href="styles/w3c-blue.css" type="text/css" />
@@ -55,15 +55,13 @@
   <img class="hidden" src="graphics/bullet-unfold-dim.gif" alt="" />
   <br clear="all" />
 
-  <h1>Introduction to Perl: Documentation</h1>
-  <!-- TODO: Your name here
-  <h2>Your Name</h2>
-  -->
+  <h1>Introduction to Writing Perl Documentation</h1>
+  <h2>Mark A. Stratman</h2>
+  <h3>YAPC::NA - 14 June, 2012</h3>
   <br />
   <br />
 	<p>
 		Download:
-		<!-- TODO: Change these links if necessary -->
 		<a class="download" href="http://is.gd/perldoc">is.gd/perldoc</a>
 		<br />
 		<small>(<a href="https://github.com/mstratman/perldoc-presentation">github.com/mstratman/perldoc-presentation</a>)</small>
@@ -157,6 +155,10 @@ This function prints a greeting addressed to C&lt;$name&gt;.
 
 <span style='color:#646478; '># End your POD with =cut to go back to code</span>
 <span style='color:#400000; font-weight:bold; '>sub </span>greet <span style='color:#806030; '>{</span> say <span style='color:#e60000; '>"Hello, "</span><span style='color:#806030; '>,</span> <span style='color:#400000; font-weight:bold; '>shift</span> <span style='color:#806030; '>}</span></pre>
+<div class="handout">
+    API documents typically have embedded POD. Tutorials or other types of
+    manuals are more commonly standalone .pod files.
+</div>
 </div>
 
 
@@ -444,7 +446,7 @@ L&lt;Related::Module&gt;, L&lt;http://related.site&gt;, L&lt;perlpod&gt;
 <div class="handout">
 	<p>
 		Cookbooks provide usable (copy-paste'able) solutions to a list of
-		solutions.
+		problems.
 	</p>
 </div>
 
@@ -630,17 +632,35 @@ L&lt;Related::Module&gt;, L&lt;http://related.site&gt;, L&lt;perlpod&gt;
 	<p><a href="http://www.shadowcat.co.uk/blog/matt-s-trout/love-your-idiots/">http://www.shadowcat.co.uk/blog/matt-s-trout/love-your-idiots/</a> - This blog post might sound a little harsh at first glance, but there are some shining nuggets of wisdom in here.</p>
 </div>
 
+<div class="slide">
+	<h1>As a module user:</h1>
+	<p>If docs are confusing</p>
+	<p class="largest">Fix them!</p>
+    <p>Don't be intimidated. You don't have to be an "expert". Submit a patch.</p>
+</div>
 
 <div class="slide">
-	<h1>Encouraging Contributions<span class="sub"> - Make it easy!</span></h1>
-	<h3>How?</h3>
+	<h1>As a module author:</h1>
+    <h3>Encourage Contributions</h3>
 	<p class="largest">Make it easy!</p>
 	<p>e.g. github</p>
 </div>
 
 
 <div class="slide">
-	<h1>Resources</h1>
+	<h1>The End</h1>
+    <h3 class="center">Questions?</h3>
+
+    <hr />
+
+    <h3>Resources</h3>
+    <p>
+        Download this:
+        <a class="download" href="http://is.gd/perldoc">is.gd/perldoc</a>
+        <small>(<a href="https://github.com/mstratman/perldoc-presentation">github.com/mstratman/perldoc-presentation</a>)</small>
+        or via YAPC::NA schedule
+    </p>
+
 	<ul>
 		<li>
 			<code>perldoc perlpod</code> or
